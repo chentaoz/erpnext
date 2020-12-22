@@ -53,6 +53,7 @@ def get_data():
 			"type": "module",
 			"description": "Stock transactions, reports, serial numbers and batches."
 		},
+                # TODO: enable Modules Below
 		{
 			"module_name": "Assets",
 			"category": "Modules",
@@ -107,7 +108,6 @@ def get_data():
 			"type": "module",
 			"description": "Quality goals, procedures, reviews and action."
 		},
-
 
 		# Category: "Domains"
 		{
