@@ -14,22 +14,23 @@ def get_data():
 			'Batch': 'item'
 		},
 		'transactions': [
-			{
-				'label': _('Groups'),
-				'items': ['BOM', 'Product Bundle', 'Item Alternative']
-			},
-			{
-				'label': _('Pricing'),
-				'items': ['Item Price', 'Pricing Rule']
-			},
+	  	#	{
+		#		'label': _('Groups'),
+		#		'items': ['BOM', 'Product Bundle', 'Item Alternative']
+		#	},
+		#	{
+		#		'label': _('Pricing'),
+		#		'items': ['Item Price', 'Pricing Rule']
+		#	},
 			{
 				'label': _('Sell'),
 				'items': ['Quotation', 'Sales Order', 'Delivery Note', 'Sales Invoice']
 			},
 			{
 				'label': _('Buy'),
-				'items': ['Material Request', 'Supplier Quotation', 'Request for Quotation',
-					'Purchase Order', 'Purchase Receipt', 'Purchase Invoice']
+				#'items': ['Material Request', 'Supplier Quotation', 'Request for Quotation',
+				#	'Purchase Order', 'Purchase Receipt', 'Purchase Invoice']
+                                'items': ['Purchase Order','Purchase Receipt','Purchase Invoice']
 			},
 			{
 				'label': _('Traceability'),
@@ -38,10 +39,10 @@ def get_data():
 			{
 				'label': _('Move'),
 				'items': ['Stock Entry']
-			},
-			{
-				'label': _('Manufacture'),
-				'items': ['Production Plan', 'Work Order', 'Item Manufacturer']
 			}
+		#	{
+		#		'label': _('Manufacture'),
+		#		'items': ['Production Plan', 'Work Order', 'Item Manufacturer']
+		#	}
 		]
 	}

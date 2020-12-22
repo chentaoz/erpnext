@@ -10,6 +10,7 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "company",
   "name_and_description_section",
   "naming_series",
   "item_code",
@@ -163,6 +164,15 @@
    "oldfieldtype": "Data",
    "reqd": 1,
    "unique": 1
+  },
+  {
+   "fetch_from": "company",
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "depends_on": "variant_of",
@@ -1060,7 +1070,7 @@
  "idx": 2,
  "image_field": "image",
  "max_attachments": 1,
- "modified": "2020-08-06 17:03:26.594319",
+ "modified": "2020-12-22 07:00:22.967179",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Item",
