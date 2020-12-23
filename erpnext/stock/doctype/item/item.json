@@ -16,6 +16,7 @@
   "item_code",
   "variant_of",
   "item_name",
+  "serial_code",
   "item_group",
   "is_item_from_hub",
   "stock_uom",
@@ -195,6 +196,7 @@
    "label": "Item Name",
    "oldfieldname": "item_name",
    "oldfieldtype": "Data",
+   "reqd": 1,
    "search_index": 1
   },
   {
@@ -1076,6 +1078,11 @@
    "fieldtype": "Data",
    "label": "Default Manufacturer Part No",
    "read_only": 1
+  },
+  {
+   "fieldname": "serial_code",
+   "fieldtype": "Data",
+   "label": "Serial Code"
   }
  ],
  "has_web_view": 1,
@@ -1083,7 +1090,7 @@
  "idx": 2,
  "image_field": "image",
  "max_attachments": 1,
- "modified": "2020-12-22 11:58:13.441277",
+ "modified": "2020-12-23 12:06:39.995056",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Item",
