@@ -1,0 +1,56 @@
+{% for d in data %}
+	<div class="dashboard-list-item">
+		<div class="row">
+			<div class="col-sm-3 small" style="margin-top: 8px;">
+				{{ d.label }}
+			</div>
+			<div class="col-sm-4 small" style="margin-top: 8px;">
+                <span class="inline-graph">
+                    <div class="progress level" style="margin: 0px;">
+                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="80" style="width: {{ cint(Math.abs(d.per)) }}%;"></div>
+                    </div>
+                </span>
+				<!-- <span class="inline-graph">
+					<span class="inline-graph-half" title="{{ __("Finsihed Qty") }}">
+						<span class="inline-graph-count">Finished: {{ d.finished }}</span>
+						<span class="inline-graph-bar">
+							<span class="inline-graph-bar-inner dark"
+								style="width: {{ cint(Math.abs(d.per)) }}%">
+							</span>
+						</span>
+					</span>
+					<span class="inline-graph-half" title="{{ __("Rst Qty") }}">
+						<span class="inline-graph-count">
+							ToDo: {{ d.rest }}
+						</span>
+						<span class="inline-graph-bar">
+							<span class="inline-graph-bar-inner "
+								style="width: {{ cint(Math.abs(100-d.per)) }}%">
+							</span>
+						</span>
+					</span>
+				</span> -->
+            </div>
+            <div class="col-sm-1 small" style="margin-top: 8px;">
+                {{ d.finished }} %
+            </div>
+           
+            <div class="col-sm-4 text-right" style="margin-top: 8px;">
+                {% if d.todo %}
+				<button class="btn btn-default btn-xs {{ d.add_btn_class }}"
+                    data-type="{{ d.type }}"
+                    date-customer="{{ customer }}"
+                    data-order="{{ sales_order }}">{{ d.add_btn_label }}</a>
+                {% endif %}
+
+                {% if d.per  %}
+                <button class="btn btn-default btn-xs {{ d.list_btn_class }}"
+                    data-type="{{ d.type }}"
+                    date-customer="{{ customer }}"
+                    data-order="{{ sales_order }}">{{ d.list_btn_label }}</a>
+                {% endif %}
+			</div>
+		
+		</div>
+	</div>
+{% endfor %}

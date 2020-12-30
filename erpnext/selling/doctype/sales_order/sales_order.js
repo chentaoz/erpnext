@@ -45,6 +45,18 @@ frappe.ui.form.on("Sales Order", {
 		});
 	},
 	refresh: function(frm) {
+
+		frappe.require('assets/js/sales-order-dashboard.min.js', function() {
+			
+			var section = frm.dashboard.add_section('<h5 style="margin-top: 0px;">\
+				<a>' + __("Order Progress") + '</a></h5>');
+		    // alert(section);
+			erpnext.selling.sales_order_dashboard = new erpnext.selling.SalesOrderDashboard({
+				parent: section,
+			});
+			erpnext.selling.sales_order_dashboard.refresh();
+		});
+
 		if(frm.doc.docstatus === 1 && frm.doc.status !== 'Closed'
 			&& flt(frm.doc.per_delivered, 6) < 100 && flt(frm.doc.per_billed, 6) < 100) {
 			frm.add_custom_button(__('Update Items'), () => {
@@ -132,6 +144,23 @@ erpnext.selling.SalesOrderController = erpnext.selling.SellingController.extend(
 					   me.frm.cscript.update_status('Re-open', 'Draft')
 				   }, __("Status"));
 			   }
+			}
+
+			if( ["Sales", "Shopping Cart"].indexOf(doc.order_type)!==-1 ){	
+
+
+				if(flt(doc.per_delivered, 6) < 100 && allow_delivery) {
+					this.frm.add_custom_button('Create Delivery', () => {
+					})
+				}
+
+				if(flt(doc.per_billed, 6) < 100) {
+					this.frm.add_custom_button(__('Sales Invoice'), () => me.make_sales_invoice());
+				}
+				if(flt(doc.per_billed)<100) {
+					this.frm.add_custom_button(__('Payment Request'), () => this.make_payment_request());
+					this.frm.add_custom_button(__('Received Payment'), () => this.make_payment_entry());
+				}
 			}
 			if(doc.status !== 'Closed') {
 				if(doc.status !== 'On Hold') {
