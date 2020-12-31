@@ -50,9 +50,9 @@ frappe.ui.form.on("Sales Order", {
 			
 			var section = frm.dashboard.add_section('<h5 style="margin-top: 0px;">\
 				<a>' + __("Order Progress") + '</a></h5>');
-		    // alert(section);
 			erpnext.selling.sales_order_dashboard = new erpnext.selling.SalesOrderDashboard({
 				parent: section,
+				form: frm
 			});
 			erpnext.selling.sales_order_dashboard.refresh();
 		});

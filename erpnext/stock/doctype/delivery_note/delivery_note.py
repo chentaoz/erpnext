@@ -192,7 +192,7 @@ class DeliveryNote(SellingController):
 
 		# Check for Approving Authority
 		frappe.get_doc('Authorization Control').validate_approving_authority(self.doctype, self.company, self.base_grand_total, self)
-
+		print("I am here")
 		# update delivered qty in sales order
 		self.update_prevdoc_status()
 		self.update_billing_status()

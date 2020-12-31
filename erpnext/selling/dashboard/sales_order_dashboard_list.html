@@ -1,7 +1,7 @@
 {% for d in data %}
 	<div class="dashboard-list-item">
 		<div class="row">
-			<div class="col-sm-3 small" style="margin-top: 8px;">
+			<div class="col-sm-2 small" style="margin-top: 8px;">
 				{{ d.label }}
 			</div>
 			<div class="col-sm-4 small" style="margin-top: 8px;">
@@ -31,8 +31,8 @@
 					</span>
 				</span> -->
             </div>
-            <div class="col-sm-1 small" style="margin-top: 8px;">
-                {{ d.finished }} %
+            <div class="col-sm-2 small" style="margin-top: 8px;">
+                {{ d.per }} % ({{ d.finished}}/{{ d.finished+d.rest }})
             </div>
            
             <div class="col-sm-4 text-right" style="margin-top: 8px;">
